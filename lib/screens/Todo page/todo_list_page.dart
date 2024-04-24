@@ -26,6 +26,8 @@ class _ToDoListPageState extends State<ToDoListPage> {
                 IconButton(
                   icon: const Icon(Icons.edit),
                   onPressed: () {
+                    TextEditingController controller =
+                        TextEditingController(text: _toDoList[index]);
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -33,6 +35,7 @@ class _ToDoListPageState extends State<ToDoListPage> {
                         return AlertDialog(
                           title: const Text('Edit task'),
                           content: TextField(
+                            controller: controller,
                             decoration: const InputDecoration(
                                 hintText: 'Enter task here'),
                             onChanged: (value) {
@@ -64,9 +67,35 @@ class _ToDoListPageState extends State<ToDoListPage> {
                 IconButton(
                   icon: const Icon(Icons.delete),
                   onPressed: () {
-                    setState(() {
-                      _toDoList.removeAt(index);
-                    });
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text(
+                              'Are you sure you want to delete this '),
+                          actions: <Widget>[
+                            TextButton(
+                              child: const Text('Cancel'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            TextButton(
+                              child: const Text('Save'),
+                              onPressed: () {
+                                setState(() {
+                                  _toDoList.removeAt(index);
+                                });
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                    // setState(() {
+                    //   _toDoList.removeAt(index);
+                    // });
                   },
                 ),
               ],
