@@ -14,6 +14,7 @@ class _ToDoListPageState extends State<ToDoListPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('To-Do List'),
+        backgroundColor: const Color(0xFF42A5F5),
       ),
       body: ListView.builder(
         itemCount: _toDoList.length,
@@ -72,7 +73,7 @@ class _ToDoListPageState extends State<ToDoListPage> {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           title: const Text(
-                              'Are you sure you want to delete this '),
+                              'Are you sure you want to delete this todo '),
                           actions: <Widget>[
                             TextButton(
                               child: const Text('Cancel'),

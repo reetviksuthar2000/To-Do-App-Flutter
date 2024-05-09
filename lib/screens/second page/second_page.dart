@@ -12,6 +12,7 @@ class SecondPage extends StatefulWidget {
 
 class _SecondPageState extends State<SecondPage> {
   String _name = '';
+  final _x = 'Hello World';
 
   @override
   void initState() {
@@ -32,6 +33,7 @@ class _SecondPageState extends State<SecondPage> {
     });
 
     logger.f(_name);
+    logger.f(_x);
   }
 
   @override

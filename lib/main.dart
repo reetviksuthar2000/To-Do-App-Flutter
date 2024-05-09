@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/Todo%20page/todo_list_page.dart';
+// import 'package:flutter_application_1/screens/Todo%20page/todo_list_page.dart';
+// import 'package:flutter_application_1/screens/login/login.dart';
+import 'package:flutter_application_1/screens/register/register.dart';
+// import 'package:flutter_application_1/screens/second%20page/second_page.dart';
 // import 'package:flutter_application_1/screens/second%20page/second_page.dart';
 
 void main() {
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const ToDoListPage(),
+        home: const Register(),
         debugShowCheckedModeBanner: false);
   }
 }
